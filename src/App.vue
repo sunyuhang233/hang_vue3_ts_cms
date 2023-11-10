@@ -4,7 +4,8 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <el-button type="primary" size="default" @click="">123</el-button>
+  <el-button type="primary" size="default" >123</el-button>
+  <el-icon><Crop /></el-icon>
 </template>
 
 <style scoped>
