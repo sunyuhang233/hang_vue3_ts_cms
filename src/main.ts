@@ -2,6 +2,7 @@ import 'normalize.css'
 import '@/assets/css/index.scss'
 import 'element-plus/dist/index.css'
 import registerIcons from './global/register-icons'
+
 import { createApp } from 'vue'
 
 import App from './App.vue'
