@@ -1,12 +1,12 @@
 <template>
   <div class="main">
     <el-container class="main-content">
-      <el-aside>
+      <el-aside :width="isChage ? '60px' : '210px'">
         <MainMenu />
       </el-aside>
       <el-container>
         <el-header height="50px">
-          <MainHeader />
+          <MainHeader @foldChange="handleFoldChange" />
         </el-header>
         <el-main>
           <router-view></router-view>
@@ -17,8 +17,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import MainHeader from '@/components/main-header/main-header.vue'
 import MainMenu from '@/components/main-menu/main-menu.vue'
+
+const isChage = ref(false)
+function handleFoldChange(isFold: boolean) {
+  isChage.value = isFold
+}
 </script>
 
 <style scoped lang="scss">
