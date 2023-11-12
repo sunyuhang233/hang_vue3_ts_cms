@@ -53,8 +53,6 @@ const isRemPwd = ref<boolean>(localCache.getCache('isRemPwd') ?? false)
 const isLoading = ref(false)
 const accountRef = ref<InstanceType<typeof paneAccount>>()
 watch(isRemPwd, (newVal) => {
-  console.log(newVal)
-
   localCache.setCache('isRemPwd', newVal)
 })
 
