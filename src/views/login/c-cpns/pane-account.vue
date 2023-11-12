@@ -26,7 +26,7 @@ import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormRules, ElForm } from 'element-plus'
 import { localCache } from '@/utils/cache'
-import useLoginStore from "@/stores/login/login"
+import useLoginStore from '@/stores/login/login'
 const CACHE_NAME = 'name'
 const CACHE_PASSWORD = 'password'
 
@@ -64,7 +64,7 @@ function loginAction(isRemPwd: boolean) {
     if (valid) {
       const name = account.name
       const password = account.password
-      loginStore.loginByAccount({ name, password, isRemPwd }).then(() => {
+      loginStore.loginByAccount({ name, password }).then(() => {
         if (isRemPwd) {
           localCache.setCache(CACHE_NAME, name)
           localCache.setCache(CACHE_PASSWORD, password)
