@@ -25,14 +25,15 @@
 import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { FormRules, ElForm } from 'element-plus'
-
+import { localCache } from '@/utils/cache'
+import useLoginStore from "@/stores/login/login"
 const CACHE_NAME = 'name'
 const CACHE_PASSWORD = 'password'
 
 // 1.定义account数据
 const account = reactive({
-  name: '',
-  password: ''
+  name: localCache.getCache(CACHE_NAME) ?? '',
+  password: localCache.getCache(CACHE_PASSWORD) ?? ''
 })
 
 // 2.定义校验规则
@@ -57,9 +58,24 @@ const accountRules: FormRules = {
 
 // 3.执行帐号的登录逻辑
 const formRef = ref<InstanceType<typeof ElForm>>()
+const loginStore = useLoginStore()
 function loginAction(isRemPwd: boolean) {
   formRef.value?.validate((valid) => {
     if (valid) {
+      const name = account.name
+      const password = account.password
+      loginStore.loginByAccount({ name, password, isRemPwd }).then(() => {
+        if (isRemPwd) {
+          localCache.setCache(CACHE_NAME, name)
+          localCache.setCache(CACHE_PASSWORD, password)
+        } else {
+          localCache.removeCache(CACHE_NAME)
+          localCache.removeCache(CACHE_PASSWORD)
+        }
+        ElMessage.success('登录成功~')
+      })
+    } else {
+      ElMessage.error('请检查帐号密码是否正确~')
     }
   })
 }

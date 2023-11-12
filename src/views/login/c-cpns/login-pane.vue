@@ -33,7 +33,7 @@
       <el-link type="primary">忘记密码</el-link>
     </div>
     <el-button
-      v-loading="isLoading"
+      :loading="isLoading"
       type="primary"
       size="large"
       class="login-btn"
@@ -47,20 +47,25 @@
 import paneAccount from './pane-account.vue'
 import panePhone from './pane-phone.vue'
 import { ref, watch } from 'vue'
-
+import { localCache } from '@/utils/cache'
 const activeName = ref('account')
-const isRemPwd = ref(false)
+const isRemPwd = ref<boolean>(localCache.getCache('isRemPwd') ?? false)
 const isLoading = ref(false)
-
+const accountRef = ref<InstanceType<typeof paneAccount>>()
 watch(isRemPwd, (newVal) => {
-  isRemPwd.value = newVal
+  console.log(newVal)
+
+  localCache.setCache('isRemPwd', newVal)
 })
 
 function handleLoginBtnClick() {
+  isLoading.value = true
   if (activeName.value === 'account') {
+    accountRef.value?.loginAction(isRemPwd.value)
   } else {
     console.log('phone')
   }
+  isLoading.value = false
 }
 </script>
 
