@@ -2,7 +2,7 @@
   <div class="main">
     <el-container class="main-content">
       <el-aside :width="isChage ? '60px' : '210px'">
-        <MainMenu />
+        <MainMenu :isFold="isChage" />
       </el-aside>
       <el-container>
         <el-header height="50px">
