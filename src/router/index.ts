@@ -11,7 +11,14 @@ const router = createRouter({
     {
       path: '/main',
       name: 'main',
-      component: () => import('../views/main/Main.vue')
+      component: () => import('../views/main/Main.vue'),
+      children: [
+        {
+          path: '/system/user',
+          name: 'user',
+          component: () => import('../views/system/user/user.vue')
+        }
+      ]
     }
   ]
 })
