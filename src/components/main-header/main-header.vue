@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ArrowRight } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import HeaderInfo from './c-cpns/header-info.vue'
 const isFold = ref(false)
@@ -18,7 +19,12 @@ function handleMenuIconClick() {
       </el-icon>
     </div>
     <div class="content">
-      <div class="breadcrumb">面包屑</div>
+      <div class="breadcrumb">
+        <el-breadcrumb :separator-icon="ArrowRight">
+          <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+          <el-breadcrumb-item>promotion</el-breadcrumb-item>
+        </el-breadcrumb>
+      </div>
       <header-info />
     </div>
   </div>
