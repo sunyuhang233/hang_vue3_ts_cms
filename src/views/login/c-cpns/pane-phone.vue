@@ -1,11 +1,10 @@
 <template>
-  <div>main</div>
+  <div>phone</div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped lang=scss>
-div{
-
+<style scoped lang="scss">
+div {
 }
 </style>

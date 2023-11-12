@@ -1,15 +1,20 @@
 <template>
-  <div>
-    <loginPane />
-    <paneAccount />
-    <panePhone />
+  <div class="login-pane">
+    <LoginPane />
   </div>
 </template>
 
-<script lang="ts">
-import loginPane from './c-cpns/login-pane.vue'
-import paneAccount from './c-cpns/pane-account.vue'
-import panePhone from './c-cpns/pane-phone.vue'
+<script lang="ts" setup>
+import LoginPane from './c-cpns/login-pane.vue'
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.login-pane {
+  height: 100vh;
+  width: 100vw;
+  background: url('@/assets/img/login-bg.svg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
