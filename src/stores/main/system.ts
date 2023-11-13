@@ -100,6 +100,20 @@ const useSystemStore = defineStore('system', {
         page: 1,
         size: 10
       })
+    },
+    async createNewItem(data: any) {
+      console.log('createNewItem', data)
+      this.getList({
+        page: 1,
+        size: 10
+      })
+    },
+    async updateUserById(id:number,data: any) {
+      console.log('updateUserById', data)
+      this.getList({
+        page: 1,
+        size: 10
+      })
     }
   }
 })

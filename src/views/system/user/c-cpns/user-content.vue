@@ -2,7 +2,7 @@
   <div class="content">
     <div class="header">
       <h3 class="title">用户列表</h3>
-      <el-button type="primary" @click="">新建用户</el-button>
+      <el-button type="primary" @click="handleNewClick">新建用户</el-button>
     </div>
     <div class="table">
       <el-table
@@ -124,7 +124,7 @@ function getDataList(formData: any = {}) {
 
   setTimeout(() => {
     isLoading.value = false
-  }, 5000)
+  }, 500)
 }
 
 getDataList()
@@ -133,10 +133,10 @@ defineExpose({
   getDataList
 })
 
-const emit = defineEmits(['editClick'])
+const emit = defineEmits(['editClick', 'newClick'])
 
 function handleEditClick(row: any) {
-  console.log('编辑')
+
   emit('editClick', row)
 }
 
@@ -144,6 +144,11 @@ function handleDeleteClick(id: number) {
   console.log('删除')
   systemStore.deleteUserByIdAction(id)
   ElMessage.success('删除成功')
+}
+
+function handleNewClick() {
+  console.log('新建')
+  emit('newClick')
 }
 </script>
 
