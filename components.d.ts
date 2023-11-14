@@ -58,6 +58,7 @@ declare module 'vue' {
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     LineEchart: typeof import('./src/components/page-echarts/line-echart.vue')['default']
+    MainEditor: typeof import('./src/components/main-editor/main-editor.vue')['default']
     MainHeader: typeof import('./src/components/main-header/main-header.vue')['default']
     MainMenu: typeof import('./src/components/main-menu/main-menu.vue')['default']
     MapEchart: typeof import('./src/components/page-echarts/map-echart.vue')['default']

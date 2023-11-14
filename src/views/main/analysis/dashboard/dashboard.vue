@@ -2,52 +2,51 @@
   <div class="dashboard">
     <el-row :gutter="10">
       <template v-for="item in list">
-      <el-col :span="6" :xs="24" :sm="12" :md="8" :lg="6">
-      <countCard v-bind="item" />
-      </el-col>
+        <el-col :span="6" :xs="24" :sm="12" :md="8" :lg="6">
+          <countCard v-bind="item" />
+        </el-col>
       </template>
     </el-row>
-      <el-row :gutter="10">
-        <el-col :span="7">
-        <el-card >
+    <el-row :gutter="10">
+      <el-col :span="7">
+        <el-card>
           <PieEchart :pie-data="props1.pieData" />
         </el-card>
+      </el-col>
+      <el-col :span="10"
+        ><el-card> <mapEchart v-bind="props1.mapData" /> </el-card
+      ></el-col>
+      <el-col :span="7"
+        ><el-card> <rose-echart :rose-data="props1.roseData" /> </el-card
+      ></el-col>
+    </el-row>
 
-        </el-col>
-        <el-col :span="10"><el-card >
-          <mapEchart v-bind="props1.mapData"  />
-        </el-card></el-col>
-        <el-col :span="7"><el-card >
-         <rose-echart :rose-data="props1.roseData" />
-        </el-card></el-col>
-
-      </el-row>
-
-       <el-row :gutter="10">
-        <el-col :span="12">
-        <el-card >
-<lineEchart v-bind="props1.lineData" />
+    <el-row :gutter="10">
+      <el-col :span="12">
+        <el-card>
+          <lineEchart v-bind="props1.lineData" />
         </el-card>
-
-        </el-col>
-        <el-col :span="12"><el-card >
-   <bar-echart v-bind="props1.barData" />
-        </el-card></el-col>
-
-      </el-row>
-
+      </el-col>
+      <el-col :span="12"
+        ><el-card> <bar-echart v-bind="props1.barData" /> </el-card
+      ></el-col>
+    </el-row>
+    <MainEditor v-model="msg" />
+    {{ msg }}
   </div>
 </template>
 
 <script setup lang="ts">
-import countCard from './c-cpns/count-card.vue';
+import countCard from './c-cpns/count-card.vue'
 import { ref, onMounted } from 'vue'
 import PieEchart from '@/components/page-echarts/pie-echart.vue'
 import roseEchart from '@/components/page-echarts/rose-echart.vue'
 import lineEchart from '@/components/page-echarts/line-echart.vue'
 import barEchart from '@/components/page-echarts/bar-echart.vue'
-import mapEchart from "@/components/page-echarts/map-echart.vue"
+import mapEchart from '@/components/page-echarts/map-echart.vue'
+import MainEditor from '@/components/main-editor/main-editor.vue'
 
+const msg = ref('我是父组件的')
 const list = ref([
   {
     amount: '¥ 126,560',
@@ -55,7 +54,7 @@ const list = ref([
     tips: '日销售额 ￥12,423',
     number1: 78,
     number2: 88,
-    subtitle: '周同比 12%',
+    subtitle: '周同比 12%'
   },
   {
     amount: '¥ 126,560',
@@ -63,7 +62,7 @@ const list = ref([
     tips: '日销售额 ￥12,423',
     number1: 78,
     number2: 88,
-    subtitle: '周同比 12%',
+    subtitle: '周同比 12%'
   },
   {
     amount: '¥ 126,560',
@@ -71,7 +70,7 @@ const list = ref([
     tips: '日销售额 ￥12,423',
     number1: 78,
     number2: 88,
-    subtitle: '周同比 12%',
+    subtitle: '周同比 12%'
   },
   {
     amount: '¥ 126,560',
@@ -79,8 +78,8 @@ const list = ref([
     tips: '日销售额 ￥12,423',
     number1: 78,
     number2: 88,
-    subtitle: '周同比 12%',
-  },
+    subtitle: '周同比 12%'
+  }
 ])
 
 const props1 = {
@@ -89,30 +88,29 @@ const props1 = {
     { value: 735, name: '直接访问' },
     { value: 580, name: '邮件营销' },
     { value: 484, name: '联盟广告' },
-    { value: 300, name: '视频广告' },
+    { value: 300, name: '视频广告' }
   ],
   roseData: [
     { value: 1048, name: '搜索引擎' },
     { value: 735, name: '直接访问' },
     { value: 580, name: '邮件营销' },
     { value: 484, name: '联盟广告' },
-    { value: 300, name: '视频广告' },
+    { value: 300, name: '视频广告' }
   ],
   lineData: {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    values: ['820', '932', '901', '934', '1290', '1330', '1320'],
+    values: ['820', '932', '901', '934', '1290', '1330', '1320']
   },
   barData: {
- labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    values: ['820', '932', '901', '934', '1290', '1330', '1320'],
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    values: ['820', '932', '901', '934', '1290', '1330', '1320']
   },
   mapData: {
-   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    values: ['820', '932', '901', '934', '1290', '1330', '1320'],
-}
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    values: ['820', '932', '901', '934', '1290', '1330', '1320']
+  }
 }
 </script>
-
 
 <style lang="scss" scoped>
 .el-row {
