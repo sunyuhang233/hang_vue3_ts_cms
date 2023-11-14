@@ -6,7 +6,11 @@
         等后台系统解决方案。
       </div>
     </MyCard>
-    <MyCard title="技术栈"></MyCard>
+    <MyCard title="技术栈">
+      <MyTextLink :text-arrs="technologyStacks" />
+      <MyDescriptions title="生产环境依赖" :column="2" :table-datas="dependencies" />
+      <MyDescriptions title="开发环境依赖" :column="2" :table-datas="devDependencies" />
+    </MyCard>
     <MyCard title="项目结构">
        <div class="c-left">
         <MyCode language="bash" :code="projectDir" />
@@ -66,13 +70,31 @@
 import MyCard from "@/components/card/card.vue"
 import MyDescriptions from "@/components/descriptions/descriptions.vue"
 import MyCode from "@/components/code/code.vue"
+import MyTextLink from "@/components/textlink/textlink.vue"
 import { technologyStacks, dependencies, devDependencies, projectDir } from './config'
 </script>
 
-<style lang="scss" scoped>
-.overview{
-   .c-left {
+<style scoped lang="scss">
+.overview {
+  .c-left {
     text-align: left;
+  }
+
+  .el-card {
+    margin-bottom: 20px;
+    // ::v-deep 重写 element-plus 样式
+    &:deep(.el-card__header span) {
+      // ::v-deep .el-card__header span {
+      font-weight: 700;
+    }
+  }
+
+  .description {
+    // ::v-deep 重写 element-plus 样式
+    &:deep(.el-descriptions__title) {
+      // ::v-deep .el-descriptions__title {
+      font-weight: 400;
+    }
   }
 }
 </style>

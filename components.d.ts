@@ -61,6 +61,7 @@ declare module 'vue' {
     PageSearch: typeof import('./src/components/page-search/page-search.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Textlink: typeof import('./src/components/textlink/textlink.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }
