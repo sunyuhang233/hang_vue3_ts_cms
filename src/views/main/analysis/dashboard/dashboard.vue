@@ -23,6 +23,19 @@
 
       </el-row>
 
+       <el-row :gutter="10">
+        <el-col :span="12">
+        <el-card >
+<lineEchart v-bind="props1.lineData" />
+        </el-card>
+
+        </el-col>
+        <el-col :span="12"><el-card >
+
+        </el-card></el-col>
+
+      </el-row>
+
   </div>
 </template>
 
@@ -31,6 +44,7 @@ import countCard from './c-cpns/count-card.vue';
 import { ref, onMounted } from 'vue'
 import PieEchart from '@/components/page-echarts/pie-echart.vue'
 import roseEchart from '@/components/page-echarts/rose-echart.vue'
+import lineEchart from '@/components/page-echarts/line-echart.vue'
 
 const list = ref([
   {
@@ -81,7 +95,11 @@ const props1 = {
     { value: 580, name: '邮件营销' },
     { value: 484, name: '联盟广告' },
     { value: 300, name: '视频广告' },
-]
+  ],
+  lineData: {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    values: ['820', '932', '901', '934', '1290', '1330', '1320'],
+}
 }
 </script>
 
