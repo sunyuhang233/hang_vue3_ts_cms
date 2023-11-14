@@ -22,28 +22,19 @@
 import { ref } from "vue";
 import PageSearch from "@/components/page-search/page-search.vue";
 import PageContent from "@/components/page-content/page-content.vue";
-import PageModal from "@/components/page-modal/page-modal.vue";
+
 import searchConfig from "./config/search.config"
 import contentConfig from "./config/content.config"
 import modalConfig from "./config/modal.config"
 import usePageContent from '@/hooks/usePageContent'
+import usePageModal from "@/hooks/usePageModal";
 // 逻辑关系
 const { contentRef, handleQueryClick, handleResetClick } = usePageContent()
 
-const pageContentRef = ref<InstanceType<typeof PageContent>>()
-const pageModalRef = ref<InstanceType<typeof PageModal>>()
-
-function handleEditClick(itemData: any) {
-  console.log("编辑", itemData);
+const { pageModalRef, handleNewClick, handleEditClick } = usePageModal(
+)
 
 
-  pageModalRef.value?.setModalVisible(false, itemData)
-}
 
-function handleNewClick() {
-  console.log("新建");
-
-   pageModalRef.value?.setModalVisible()
-}
 </script>
 ./config/modal.config
