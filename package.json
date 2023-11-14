@@ -15,6 +15,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "countup.js": "^2.8.0",
     "dayjs": "^1.11.10",
+    "echarts": "^5.4.3",
     "element-plus": "^2.4.2",
     "highlight.js": "^11.9.0",
     "hljs": "^6.2.3",

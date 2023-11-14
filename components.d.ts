@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BaseEchart: typeof import('./src/components/page-echarts/base-echart.vue')['default']
     Card: typeof import('./src/components/card/card.vue')['default']
     Code: typeof import('./src/components/code/code.vue')['default']
     Descriptions: typeof import('./src/components/descriptions/descriptions.vue')['default']
@@ -55,11 +56,13 @@ declare module 'vue' {
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
+    LineEchart: typeof import('./src/components/page-echarts/line-echart.vue')['default']
     MainHeader: typeof import('./src/components/main-header/main-header.vue')['default']
     MainMenu: typeof import('./src/components/main-menu/main-menu.vue')['default']
     PageContent: typeof import('./src/components/page-content/page-content.vue')['default']
     PageModal: typeof import('./src/components/page-modal/page-modal.vue')['default']
     PageSearch: typeof import('./src/components/page-search/page-search.vue')['default']
+    PieEchart: typeof import('./src/components/page-echarts/pie-echart.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Textlink: typeof import('./src/components/textlink/textlink.vue')['default']

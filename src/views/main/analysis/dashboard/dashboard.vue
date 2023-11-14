@@ -5,16 +5,31 @@
       <el-col :span="6" :xs="24" :sm="12" :md="8" :lg="6">
       <countCard v-bind="item" />
       </el-col>
-
       </template>
     </el-row>
+      <el-row :gutter="10">
+        <el-col :span="7">
+        <el-card >
+          <PieEchart :pie-data="props.pieData" />
+        </el-card>
+
+        </el-col>
+        <el-col :span="10"><el-card >
+          123
+        </el-card></el-col>
+        <el-col :span="7"><el-card >
+          123
+        </el-card></el-col>
+
+      </el-row>
 
   </div>
 </template>
 
 <script setup lang="ts">
 import countCard from './c-cpns/count-card.vue';
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import PieEchart from '@/components/page-echarts/pie-echart.vue'
 
 const list = ref([
   {
@@ -51,4 +66,21 @@ const list = ref([
   },
 ])
 
+const props = {
+  pieData: [
+    { value: 1048, name: '搜索引擎' },
+    { value: 735, name: '直接访问' },
+    { value: 580, name: '邮件营销' },
+    { value: 484, name: '联盟广告' },
+    { value: 300, name: '视频广告' },
+
+  ]
+}
 </script>
+
+
+<style lang="scss" scoped>
+.el-row {
+  margin-bottom: 10px;
+}
+</style>
