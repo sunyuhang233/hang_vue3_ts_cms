@@ -42,8 +42,9 @@ const useSystemStore = defineStore('useSystemStore', {
     },
     async editPageDataAction(moduleName: string, id: string, editData: any) { },
     async newPageDataAction(moduleName: string, newData: any) {
-      
+
     },
+    async deletePageByIdAction(moduleName: string, id: string) { }
   }
 })
 
