@@ -25,6 +25,7 @@ const props = defineProps({
   &:deep(.el-card__header) {
     padding: 10px 20px !important;
   }
+  margin: 10px 0;
 }
 
 .card-header {
