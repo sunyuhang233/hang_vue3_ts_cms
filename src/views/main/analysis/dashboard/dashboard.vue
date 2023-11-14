@@ -15,7 +15,7 @@
 
         </el-col>
         <el-col :span="10"><el-card >
-          123
+          <mapEchart v-bind="props1.mapData"  />
         </el-card></el-col>
         <el-col :span="7"><el-card >
          <rose-echart :rose-data="props1.roseData" />
@@ -46,6 +46,8 @@ import PieEchart from '@/components/page-echarts/pie-echart.vue'
 import roseEchart from '@/components/page-echarts/rose-echart.vue'
 import lineEchart from '@/components/page-echarts/line-echart.vue'
 import barEchart from '@/components/page-echarts/bar-echart.vue'
+import mapEchart from "@/components/page-echarts/map-echart.vue"
+
 const list = ref([
   {
     amount: '¥ 126,560',
@@ -102,6 +104,10 @@ const props1 = {
   },
   barData: {
  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    values: ['820', '932', '901', '934', '1290', '1330', '1320'],
+  },
+  mapData: {
+   labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     values: ['820', '932', '901', '934', '1290', '1330', '1320'],
 }
 }
