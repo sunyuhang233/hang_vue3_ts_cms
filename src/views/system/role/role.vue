@@ -26,22 +26,12 @@ import PageModal from "@/components/page-modal/page-modal.vue";
 import searchConfig from "./config/search.config"
 import contentConfig from "./config/content.config"
 import modalConfig from "./config/modal.config"
-
+import usePageContent from '@/hooks/usePageContent'
+// 逻辑关系
+const { contentRef, handleQueryClick, handleResetClick } = usePageContent()
 
 const pageContentRef = ref<InstanceType<typeof PageContent>>()
 const pageModalRef = ref<InstanceType<typeof PageModal>>()
-
-function handleQueryClick(queryInfo: any) {
-  console.log("queryInfo", queryInfo);
-
-  pageContentRef.value?.fetchPageListData(queryInfo)
-}
-
-function handleResetClick() {
-  console.log("重置");
-
-  pageContentRef.value?.fetchPageListData()
-}
 
 function handleEditClick(itemData: any) {
   console.log("编辑", itemData);
