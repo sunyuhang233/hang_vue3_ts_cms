@@ -7,7 +7,11 @@
       </div>
     </MyCard>
     <MyCard title="技术栈"></MyCard>
-    <MyCard title="项目结构"></MyCard>
+    <MyCard title="项目结构">
+       <div class="c-left">
+        <MyCode language="bash" :code="projectDir" />
+       </div>
+    </MyCard>
     <MyCard title="项目规范">
             <MyDescriptions
         title="文件命名规范"
@@ -61,6 +65,8 @@
 <script lang="ts" setup>
 import MyCard from "@/components/card/card.vue"
 import MyDescriptions from "@/components/descriptions/descriptions.vue"
+import MyCode from "@/components/code/code.vue"
+import { technologyStacks, dependencies, devDependencies, projectDir } from './config'
 </script>
 
 <style lang="scss" scoped>
