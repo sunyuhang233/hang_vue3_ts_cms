@@ -39,7 +39,11 @@ const useSystemStore = defineStore('useSystemStore', {
       ]
       // 保存数据
       this.pageList = data
-    }
+    },
+    async editPageDataAction(moduleName: string, id: string, editData: any) { },
+    async newPageDataAction(moduleName: string, newData: any) {
+      
+    },
   }
 })
 
