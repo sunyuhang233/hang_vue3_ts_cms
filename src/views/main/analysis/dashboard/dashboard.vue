@@ -31,7 +31,7 @@
 
         </el-col>
         <el-col :span="12"><el-card >
-
+   <bar-echart v-bind="props1.barData" />
         </el-card></el-col>
 
       </el-row>
@@ -45,7 +45,7 @@ import { ref, onMounted } from 'vue'
 import PieEchart from '@/components/page-echarts/pie-echart.vue'
 import roseEchart from '@/components/page-echarts/rose-echart.vue'
 import lineEchart from '@/components/page-echarts/line-echart.vue'
-
+import barEchart from '@/components/page-echarts/bar-echart.vue'
 const list = ref([
   {
     amount: '¥ 126,560',
@@ -98,6 +98,10 @@ const props1 = {
   ],
   lineData: {
     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    values: ['820', '932', '901', '934', '1290', '1330', '1320'],
+  },
+  barData: {
+ labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     values: ['820', '932', '901', '934', '1290', '1330', '1320'],
 }
 }

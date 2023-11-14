@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BarEchart: typeof import('./src/components/page-echarts/bar-echart.vue')['default']
     BaseEchart: typeof import('./src/components/page-echarts/base-echart.vue')['default']
     Card: typeof import('./src/components/card/card.vue')['default']
     Code: typeof import('./src/components/code/code.vue')['default']
