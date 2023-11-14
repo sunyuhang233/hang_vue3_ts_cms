@@ -10,7 +10,7 @@
       <el-row :gutter="10">
         <el-col :span="7">
         <el-card >
-          <PieEchart :pie-data="props.pieData" />
+          <PieEchart :pie-data="props1.pieData" />
         </el-card>
 
         </el-col>
@@ -18,7 +18,7 @@
           123
         </el-card></el-col>
         <el-col :span="7"><el-card >
-          123
+         <rose-echart :rose-data="props1.roseData" />
         </el-card></el-col>
 
       </el-row>
@@ -30,6 +30,7 @@
 import countCard from './c-cpns/count-card.vue';
 import { ref, onMounted } from 'vue'
 import PieEchart from '@/components/page-echarts/pie-echart.vue'
+import roseEchart from '@/components/page-echarts/rose-echart.vue'
 
 const list = ref([
   {
@@ -66,15 +67,21 @@ const list = ref([
   },
 ])
 
-const props = {
+const props1 = {
   pieData: [
     { value: 1048, name: '搜索引擎' },
     { value: 735, name: '直接访问' },
     { value: 580, name: '邮件营销' },
     { value: 484, name: '联盟广告' },
     { value: 300, name: '视频广告' },
-
-  ]
+  ],
+  roseData: [
+    { value: 1048, name: '搜索引擎' },
+    { value: 735, name: '直接访问' },
+    { value: 580, name: '邮件营销' },
+    { value: 484, name: '联盟广告' },
+    { value: 300, name: '视频广告' },
+]
 }
 </script>
 
